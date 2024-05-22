@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  button {
+    @apply max-w-36 max-h-14 mx-2 px-4 border-solid border-black border-2 rounded-full bg-gray-900 text-white font-semibold;
+  }
+  h1 {
+    @apply text-center font-bold text-4xl;
+  }
+  /*   h3 {
+    @apply  font-bold text-4xl;
+  } */
+}
