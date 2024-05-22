@@ -19,6 +19,7 @@ const CreatePost = () => {
   };
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     if (title !== "" && text !== "") {
       const newPost = {
         id: Date.now(),
@@ -29,7 +30,7 @@ const CreatePost = () => {
       setPosts([newPost, ...posts]);
       setTitle("");
       setText("");
-      console.log("Submitted input:", input);
+      console.log("Submitted input:", newPost);
     }
   };
   return (
@@ -46,7 +47,7 @@ const CreatePost = () => {
           placeholder="Title"
         />
         <textarea
-          className="border-solid border-4"
+          className="border-solid border-2"
           name="text"
           value={text}
           onChange={handleChange}

@@ -2,10 +2,8 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase/firebaseConfig";
 import { createContext, useState, useEffect } from "react";
 
-// Skapa en ny kontext
 export const AuthContext = createContext();
 
-// Skapa en komponent som innehåller state du vill dela
 export const AuthProvider = (props) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [userLoggedIn, setUserLoggedIn] = useState(false);
