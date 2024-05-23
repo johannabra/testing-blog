@@ -25,18 +25,10 @@ const EditPost = () => {
   };
 
   const handleSave = () => {
-    const updatedPosts = posts.map((post) => {
-      if (post.id === parseInt(postId)) {
-        return {
-          ...post,
-          title: title,
-          text: text,
-        };
-      }
-      return post;
-    });
+    const updatedPosts = posts.map((post) =>
+      post.id === parseInt(postId) ? { ...post, title, text } : post
+    );
     setPosts(updatedPosts);
-    window.location.href = "/home";
   };
 
   return (
@@ -53,7 +45,8 @@ const EditPost = () => {
       <textarea
         className="bg-gray-100"
         value={text}
-        onChange={handleTextChange}></textarea>
+        onChange={handleTextChange}
+      />
       <div className="m-2">
         <button onClick={handleSave} aria-label="save">
           Save
