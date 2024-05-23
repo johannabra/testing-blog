@@ -7,6 +7,7 @@ const EditPost = () => {
   const { posts, setPosts } = useContext(BlogContext);
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
+  const [redirectToHome, setRedirectToHome] = useState(false);
 
   useEffect(() => {
     const selectedPost = posts.find((post) => post.id === parseInt(postId));
@@ -29,6 +30,7 @@ const EditPost = () => {
       post.id === parseInt(postId) ? { ...post, title, text } : post
     );
     setPosts(updatedPosts);
+    setRedirectToHome(true);
   };
 
   return (
@@ -49,7 +51,7 @@ const EditPost = () => {
       />
       <div className="m-2">
         <button onClick={handleSave} aria-label="save">
-          Save
+          <Link to="/home"> Save </Link>
         </button>
         <button aria-label="cancel">
           <Link to="/home">Cancel</Link>
