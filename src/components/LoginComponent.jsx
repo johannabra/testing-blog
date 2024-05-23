@@ -72,7 +72,7 @@ const LoginComponent = () => {
               className={`w-full px-4 py-2 text-white font-medium rounded-lg ${
                 isSigningIn
                   ? "bg-gray-300 cursor-not-allowed"
-                  : "bg-indigo-600 hover:bg-indigo-700 hover:shadow-xl transition duration-300"
+                  : "bg-pink-400 hover:bg-pink-800 hover:shadow-xl transition duration-300"
               }`}>
               {isSigningIn ? "Signing In..." : "Sign In"}
             </button>

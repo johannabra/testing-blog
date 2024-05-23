@@ -7,7 +7,6 @@ const EditPost = () => {
   const { posts, setPosts } = useContext(BlogContext);
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
-  const [redirectToHome, setRedirectToHome] = useState(false);
 
   useEffect(() => {
     const selectedPost = posts.find((post) => post.id === parseInt(postId));
