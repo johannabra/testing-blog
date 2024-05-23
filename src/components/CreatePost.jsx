@@ -7,6 +7,7 @@ const CreatePost = () => {
   const { currentUser } = useContext(AuthContext);
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
+  const [category, setCategory] = useState("uncategorized");
 
   useEffect(() => {
     console.log("Posts: ", posts);
@@ -16,6 +17,7 @@ const CreatePost = () => {
     const { name, value } = e.target;
     if (name === "title") setTitle(value);
     else if (name === "text") setText(value);
+    else if (name === "category") setCategory(value);
   };
 
   const handleSubmit = (e) => {
@@ -26,10 +28,12 @@ const CreatePost = () => {
         title: title,
         text: text,
         author: currentUser.email,
+        category: category,
       };
       setPosts([newPost, ...posts]);
       setTitle("");
       setText("");
+      setCategory("uncategorized");
       console.log("Submitted input:", newPost);
     }
   };
@@ -52,6 +56,16 @@ const CreatePost = () => {
           value={text}
           onChange={handleChange}
           placeholder="Text"></textarea>
+        <select
+          className="border-solid border-2"
+          name="category"
+          value={category}
+          onChange={handleChange}>
+          <option value="uncategorized">Uncategorized</option>
+          <option value="tech">Tech</option>
+          <option value="design">Design</option>
+          <option value="food">Food</option>
+        </select>
         <button className="m-2" type="submit">
           Add post
         </button>

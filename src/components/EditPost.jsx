@@ -7,6 +7,7 @@ const EditPost = () => {
   const { posts, setPosts } = useContext(BlogContext);
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
+  const [category, setCategory] = useState("uncategorized");
 
   useEffect(() => {
     const selectedPost = posts.find((post) => post.id === parseInt(postId));
@@ -24,9 +25,13 @@ const EditPost = () => {
     setText(e.target.value);
   };
 
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value);
+  };
+
   const handleSave = () => {
     const updatedPosts = posts.map((post) =>
-      post.id === parseInt(postId) ? { ...post, title, text } : post
+      post.id === parseInt(postId) ? { ...post, title, text, category } : post
     );
     setPosts(updatedPosts);
     setRedirectToHome(true);
@@ -34,7 +39,17 @@ const EditPost = () => {
 
   return (
     <div className="flex flex-col w-1/2 m-10 p-2 border-2 border-solid border-black">
-      <h2>Edit Post</h2>
+      <h2 className="text-bold">Edit Post</h2>
+      <select
+        className="border-solid border-2"
+        name="category"
+        value={category}
+        onChange={handleCategoryChange}>
+        <option value="uncategorized">Uncategorized</option>
+        <option value="tech">Tech</option>
+        <option value="design">Design</option>
+        <option value="food">Food</option>
+      </select>
       <label>Title:</label>
       <input
         className="bg-gray-100"

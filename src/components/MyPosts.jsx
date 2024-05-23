@@ -22,7 +22,7 @@ const MyPosts = () => {
           <div
             key={post.id}
             className="bg-gray-100 w-1/2 px-10 py-5 m-2 border-2 border-solid border-black">
-            <p className="text-blue-700 font-bold">{post.author}</p>
+            <p className="text-gray-500">Category: {post.category}</p>
             <h3 className="font-bold">{post.title}</h3>
             <p>{post.text}</p>
 

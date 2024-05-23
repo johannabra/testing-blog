@@ -8,7 +8,9 @@ const Nav = () => {
     <nav className="flex justify-between items-center">
       {userLoggedIn ? (
         <>
-          <p className="mx-5 font-bold">Welcome {currentUser.email}</p>
+          <p className="mx-5 font-bold text-indigo-400">
+            Welcome {currentUser.email}
+          </p>
 
           <Link to="/home" className="mr-4">
             Home
