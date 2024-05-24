@@ -12,9 +12,17 @@ const LoginComponent = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    await signInUser(email, password);
-    if (!isSigningIn) {
-      setIsSigningIn(true);
+    setIsSigningIn(true);
+    setErrorMessage(""); // Reset error message before attempting to sign in
+
+    try {
+      await signInUser(email, password);
+      console.log("User signed in successfully");
+      setIsSigningIn(false);
+    } catch (error) {
+      console.error("Error during sign in:", error);
+      setErrorMessage(error.message); // Set the error message to be displayed
+      setIsSigningIn(false);
     }
   };
 
@@ -39,9 +47,7 @@ const LoginComponent = () => {
                 autoComplete="email"
                 required
                 value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
               />
             </div>
@@ -55,9 +61,7 @@ const LoginComponent = () => {
                 autoComplete="current-password"
                 required
                 value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
+                onChange={(e) => setPassword(e.target.value)}
                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
               />
             </div>

@@ -22,6 +22,8 @@ const Posts = () => {
     }
   };
 
+  const filteredPosts = filterPosts(selectedCategory);
+
   return (
     <div className="flex flex-col justify-center items-center">
       <div>
@@ -36,8 +38,8 @@ const Posts = () => {
         </select>
       </div>
 
-      {filterPosts(selectedCategory).map((post) => {
-        const isCurrentUserAuthor = post.author === currentUser.email;
+      {filteredPosts.map((post) => {
+        const isCurrentUserAuthor = post.author === currentUser?.email;
         return (
           <div
             key={post.id}
