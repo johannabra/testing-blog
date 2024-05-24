@@ -1,9 +1,7 @@
 import { createContext, useState } from "react";
 
-// Skapa en ny kontext
 export const UserContext = createContext();
 
-// Skapa en komponent som innehåller state du vill dela
 export const UserProvider = (props) => {
   const [userName, setUserName] = useState("John John");
   const lsIsLoggedIn = localStorage.getItem("isLoggedIn");

@@ -57,7 +57,12 @@ const Comments = ({ postId }) => {
 const CommentForm = ({ onSubmit }) => {
   return (
     <form onSubmit={onSubmit}>
-      <textarea name="comment" rows="1" cols="50" required></textarea>
+      <textarea
+        className="border border-solid border-indigo-300"
+        name="comment"
+        rows="1"
+        cols="50"
+        required></textarea>
       <br />
       <button type="submit" className="text-sm">
         Add Comment

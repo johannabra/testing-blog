@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { signOutUser } from "../firebase/authFunctions";
+
 const Nav = () => {
   const { currentUser, userLoggedIn } = useContext(AuthContext);
   return (
