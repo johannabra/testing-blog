@@ -9,6 +9,7 @@ import RegisterComponent from "./components/RegisterComponent";
 import { BlogPostProvider } from "./context/BlogContext";
 import EditPage from "./pages/EditPage";
 import { CommentProvider } from "./context/ResponseContext";
+import CreatePost from "./components/CreatePost";
 
 const App = () => {
   return (
